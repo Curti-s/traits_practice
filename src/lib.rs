@@ -66,6 +66,26 @@ pub mod notify {
     pub fn another_notify<T: crate::summary::Summary>(item: &T) { // trait bounds
         println!("Another breaking news: {} \n", item.summarize());
     }
-
 }
 
+
+// returning types that implement traits -> useful esp w/i context of closures and iterators
+pub mod summarizable {
+    pub fn summarizable_tweet(username: String, content:String, reply:bool, retweet:bool) -> impl crate::summary::Summary {
+        crate::tweet::Tweet {
+            username,
+            content,
+            reply,
+            retweet,
+        }
+    }
+
+    pub fn summarizable_news_article(headline: String, location: String, author: String, content: String) -> impl crate::summary::Summary {
+        crate::news_article::NewsArticle {
+            headline,
+            location,
+            author ,
+            content,
+        }
+    }
+}
