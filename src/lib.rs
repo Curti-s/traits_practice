@@ -4,6 +4,9 @@
 // Trait bounds specify that a generic can be any type that has a certain behavior.
 //
 // A types behavior consists of the methods we can call on that type.
+//
+// Note that it isn't possible to call the default implementation from an 
+// overriding implementation of that same method.
 
 pub mod summary {
     pub trait Summary {
@@ -29,6 +32,7 @@ pub mod news_article {
         }
 
         fn summarize_author(&self) -> String {
+            // self.read_more(); this is not allowed
             format!("@{}", self.author)
         }
     }
@@ -48,6 +52,7 @@ pub mod tweet {
         }
 
         fn summarize_author(&self) -> String {
+            // self.read_more(); this is not allowed
             format!("@{}", self.username)
         }
     }
