@@ -8,8 +8,9 @@
 pub mod summary {
     pub trait Summary {
         fn summarize(&self) -> String;
+        fn summarize_author(&self) -> String;
         fn read_more(&self) -> String {
-            String::from("Read more...")
+            format!("Read more from {}", self.summarize_author())
         }
     }
 }
@@ -26,6 +27,10 @@ pub mod news_article {
         fn summarize(&self) -> String {
             format!("{}, by {} ({})", self.headline, self.author, self.location)
         }
+
+        fn summarize_author(&self) -> String {
+            format!("@{}", self.author)
+        }
     }
 }
 
@@ -40,6 +45,10 @@ pub mod tweet {
     impl crate::summary::Summary for Tweet {
         fn summarize(&self) -> String {
             format!("{}: {}", self.username, self.content)
+        }
+
+        fn summarize_author(&self) -> String {
+            format!("@{}", self.username)
         }
     }
 }

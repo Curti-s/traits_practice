@@ -11,7 +11,7 @@ fn main() {
     };
 
     println!("{}", tweet.read_more());
-    println!("1 new tweet: {}", tweet.summarize());
+    println!("1 new tweet: {} \n", tweet.summarize());
 
 
     let article = NewsArticle {
@@ -23,5 +23,6 @@ fn main() {
               hockey team in NHL"),
     };
 
+    println!("{}", article.read_more());
     println!("New aritcle: {}", article.summarize());
 }
