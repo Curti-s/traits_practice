@@ -8,6 +8,9 @@
 pub mod summary {
     pub trait Summary {
         fn summarize(&self) -> String;
+        fn read_more(&self) -> String {
+            String::from("Read more...")
+        }
     }
 }
 

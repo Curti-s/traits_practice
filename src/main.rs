@@ -9,5 +9,6 @@ fn main() {
         retweet:  false,
     };
 
+    println!("{}", tweet.read_more());
     println!("1 new tweet: {}", tweet.summarize());
 }
