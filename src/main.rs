@@ -1,4 +1,5 @@
 use traits::tweet::Tweet;
+use traits::news_article::NewsArticle;
 use traits::summary::Summary;
 
 fn main() {
@@ -13,7 +14,7 @@ fn main() {
     println!("1 new tweet: {}", tweet.summarize());
 
 
-    let article = NewsArtocle {
+    let article = NewsArticle {
         headline: String::from("Penguins win the Stanley Cup Championship"),
         location: String::from("Pittsburgh, PA, USA"),
         author: String::from("Iceburgh"),
