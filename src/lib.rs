@@ -53,3 +53,9 @@ pub mod tweet {
     }
 }
 
+pub mod notify {
+    pub fn notify(item: &impl crate::summary::Summary) { // traits as params
+        println!("Breaking news! {}", item.summarize());
+    }
+
+}

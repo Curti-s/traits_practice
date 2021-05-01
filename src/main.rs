@@ -1,6 +1,7 @@
 use traits::tweet::Tweet;
 use traits::news_article::NewsArticle;
 use traits::summary::Summary;
+use traits::notify::notify;
 
 fn main() {
     let tweet = Tweet {
@@ -11,7 +12,7 @@ fn main() {
     };
 
     println!("{}", tweet.read_more());
-    println!("1 new tweet: {} \n", tweet.summarize());
+    println!("{:?} \n", notify(&tweet));
 
 
     let article = NewsArticle {
@@ -24,5 +25,5 @@ fn main() {
     };
 
     println!("{}", article.read_more());
-    println!("New aritcle: {}", article.summarize());
+    println!("{:?} \n", notify(&article));
 }
